@@ -13,10 +13,8 @@ Assuma que a e b tem tamanho 2 ou maior.
 """
 
 def mix_up(a, b):
-    list_a = list(a)
-    list_b = list(b)
-    list_a[0:2], list_b[0:2] = list_b[0:2], list_a[0:2]
-    return ''.join(list_a) + ' ' + ''.join(list_b)
+    return 'Os parâmetros a e b devem possuir dois ou mais caracteres!' \
+        if len(a) < 2 or len(b) < 2 else ''.join(a.replace(a[:2], b[:2])) + ' ' + ''.join(b.replace(b[:2], a[:2]))
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
@@ -44,3 +42,10 @@ if __name__ == '__main__':
     test(mix_up, ('dog', 'dinner'), 'dig donner')
     test(mix_up, ('gnash', 'sport'), 'spash gnort')
     test(mix_up, ('pezzy', 'firm'), 'fizzy perm')
+    test(mix_up, ('pe', 'ta'), 'ta pe')
+    test(mix_up, ('p', 'ta'),
+         'Os parâmetros a e b devem possuir dois ou mais caracteres!')
+    test(mix_up, ('pe', 't'),
+         'Os parâmetros a e b devem possuir dois ou mais caracteres!')
+    test(mix_up, ('p', 't'),
+         'Os parâmetros a e b devem possuir dois ou mais caracteres!')
