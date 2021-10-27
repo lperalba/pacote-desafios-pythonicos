@@ -10,12 +10,16 @@ Exemplo: 'abcde', a metade da frente é 'abc' e a de trás é 'de'.
 Finalmente, dadas duas strings a e b, retorne uma string na forma:
 a-frente + b-frente + a-trás + b-trás
 """
+import math
+
+def separa(palavra):
+    tamanho = len(palavra)/2
+    return palavra[:math.ceil(tamanho)], palavra[math.ceil(tamanho):] 
+
 def front_back(a, b):
     # +++ SUA SOLUÇÃO +++
-    tam_a, tam_b = len(a), len(b)
-    resto_a, resto_b = tam_a%2, tam_b%2
-    a_frente, a_tras = a[:int(tam_a/2) + resto_a], a[int(tam_a/2) + resto_a:]
-    b_frente, b_tras = b[:int(tam_b/2) + resto_b], b[int(tam_b/2) + resto_b:]
+    a_frente, a_tras = separa(a)
+    b_frente, b_tras = separa(b)
     return a_frente + b_frente + a_tras + b_tras
 
 
