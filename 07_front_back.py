@@ -12,7 +12,11 @@ a-frente + b-frente + a-trás + b-trás
 """
 def front_back(a, b):
     # +++ SUA SOLUÇÃO +++
-    return
+    tam_a, tam_b = len(a), len(b)
+    resto_a, resto_b = tam_a%2, tam_b%2
+    a_frente, a_tras = a[:int(tam_a/2) + resto_a], a[int(tam_a/2) + resto_a:]
+    b_frente, b_tras = b[:int(tam_b/2) + resto_b], b[int(tam_b/2) + resto_b:]
+    return a_frente + b_frente + a_tras + b_tras
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
