@@ -11,7 +11,9 @@ A sua solução deve rodar em tempo linear, ou seja, deve fazer uma
 
 def linear_merge(list1, list2):
     # +++ SUA SOLUÇÃO +++
-    return
+    resultado = list1 + list2
+    resultado.sort()
+    return resultado
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
