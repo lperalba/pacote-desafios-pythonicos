@@ -16,10 +16,7 @@ def front_x(words):
     lista_com_x = [word for word in words if word[0] == 'x']
     lista = [word for word in words if word[0] != 'x']
 
-    lista_com_x.sort()
-    lista.sort()
-
-    return lista_com_x + lista
+    return sorted(lista_com_x) + sorted(lista)
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
