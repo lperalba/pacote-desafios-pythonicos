@@ -20,7 +20,7 @@ def front_back(a, b):
     # +++ SUA SOLUÇÃO +++
     a_frente, a_tras = separa(a)
     b_frente, b_tras = separa(b)
-    return a_frente + b_frente + a_tras + b_tras
+    return ''.join([a_frente, b_frente, a_tras, b_tras])
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
