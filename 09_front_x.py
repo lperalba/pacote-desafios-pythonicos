@@ -13,19 +13,13 @@ antes de combina-las.
 
 def front_x(words):
     # +++ SUA SOLUÇÃO +++
-    lista = []
-    lista_x = []
+    lista_com_x = [word for word in words if word[0] == 'x']
+    lista = [word for word in words if word[0] != 'x']
 
-    for word in words:
-        if word[0] == 'x':
-            lista_x.append(word)
-        else:
-            lista.append(word) 
-
-    lista_x.sort()
+    lista_com_x.sort()
     lista.sort()
 
-    return lista_x + lista
+    return lista_com_x + lista
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
