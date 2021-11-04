@@ -13,10 +13,11 @@ antes de combina-las.
 
 def front_x(words):
     # +++ SUA SOLUÇÃO +++
-    lista_com_x = [word for word in words if word[0] == 'x']
+    '''lista_com_x = [word for word in words if word[0] == 'x']
     lista = [word for word in words if word[0] != 'x']
 
-    return sorted(lista_com_x) + sorted(lista)
+    return sorted(lista_com_x) + sorted(lista)'''
+    return sorted(words, key=lambda x: x if x[0] == 'x' else f'y{x}')
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---

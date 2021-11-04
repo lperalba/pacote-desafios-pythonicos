@@ -11,9 +11,25 @@ A sua solução deve rodar em tempo linear, ou seja, deve fazer uma
 
 def linear_merge(list1, list2):
     # +++ SUA SOLUÇÃO +++
-    resultado = list1 + list2
-    resultado.sort()
-    return resultado
+    resultado = []
+    while True:
+        elem1 = list1[-1] if list1 else ''
+        elem2 = list2[-1] if list2 else ''
+        
+        if  elem1 > elem2:
+            resultado.insert(0, list1.pop(-1))
+        else:
+            resultado.insert(0, list2.pop(-1))
+        
+        if not (list1 or list2):
+            return resultado
+
+    
+
+
+
+
+
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
