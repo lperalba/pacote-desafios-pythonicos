@@ -15,7 +15,7 @@ do número de ocorrências.
 
 Por exemplo:
 
-$ python wordcount.py --count letras.txt
+$ python 13_wordcount.py --count letras.txt
 a 2
 b 4
 c 3
@@ -31,7 +31,7 @@ do número de ocorrências, em ordem crescente de ocorrências.
 
 Por exemplo:
 
-$ python wordcount.py --topcount letras.txt
+$ python 13_wordcount.py --topcount letras.txt
 b 4
 c 3
 a 2
@@ -52,10 +52,39 @@ e conferindo cada etapa do seu progresso.
 """
 
 import sys
+from typing import Collection
 
 
 # +++ SUA SOLUÇÃO +++
 # Defina as funções print_words(filename) e print_top(filename).
+
+import collections
+
+def monta_dict(filename):
+    lista_palavras = []
+    f = open(filename, 'r')
+    for linha in f:
+        for palavra in linha.split():
+            lista_palavras.append(palavra.lower())
+
+        contagem_ocorrencias = collections.Counter(lista_palavras)
+
+    return contagem_ocorrencias
+
+def print_resultado(lista_ordenada):
+    for key, value in lista_ordenada.items():
+        print(key + ' ' + str(value))
+
+def print_words(filename):
+    lista_ocorrencias = monta_dict(filename)
+    lista_ordenada = collections.OrderedDict(sorted(lista_ocorrencias.items()))
+    print_resultado(lista_ordenada)    
+
+def print_top(filename):
+    lista_ocorrencias = monta_dict(filename)
+    lista_ordenada = collections.OrderedDict(
+        sorted(lista_ocorrencias.items(), key=lambda t: t[1], reverse=True))
+    print_resultado(lista_ordenada)
 
 
 # A função abaixo chama print_words() ou print_top() de acordo com os
