@@ -62,12 +62,12 @@ import collections
 
 def monta_dict(filename):
     lista_palavras = []
-    f = open(filename, 'r')
-    for linha in f:
-        for palavra in linha.split():
-            lista_palavras.append(palavra.lower())
+    with open(filename, 'r') as f:
+        for linha in f:
+            for palavra in linha.split():
+                lista_palavras.append(palavra.lower())
 
-        contagem_ocorrencias = collections.Counter(lista_palavras)
+            contagem_ocorrencias = collections.Counter(lista_palavras)
 
     return contagem_ocorrencias
 
