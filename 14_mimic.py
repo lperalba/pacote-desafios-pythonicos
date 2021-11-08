@@ -46,25 +46,42 @@ import sys
 def mimic_dict(filename):
   """Retorna o dicionario imitador mapeando cada palavra para a lista de
   palavras subsequentes."""
-    # +++ SUA SOLUÇÃO +++
-  return
+  # +++ SUA SOLUÇÃO +++
+  lista_palavras = []
+  with open(filename, 'r') as f:
+    for linha in f:
+      for palavra in linha.split():
+        lista_palavras.append(palavra.lower())
+  
+  lista_palavras = list(dict.fromkeys(lista_palavras))
+  
+  dict_opcoes = {}
+  dict_opcoes[''] = lista_palavras[0]
+  pos = 1
 
+  for palavra in lista_palavras:
+    dict_opcoes[palavra] = lista_palavras[pos:]
+    pos += 1
 
+  return dict_opcoes
+
+  
 def print_mimic(mimic_dict, word):
   """Dado o dicionario imitador e a palavra inicial, imprime texto de 200 palavras."""
     # +++ SUA SOLUÇÃO +++
-  return
+  #return mimic_dict
+  print(mimic_dict)
 
 
 # Chama mimic_dict() e print_mimic()
 def main():
-  if len(sys.argv) != 2:
+  '''if len(sys.argv) != 2:
     print('Utilização: ./14_mimic.py file-to-read')
-    sys.exit(1)
-
-  dict = mimic_dict(sys.argv[1])
+    sys.exit(1)'''
+ 
+  dict = mimic_dict('letras.txt') #sys.argv[1])
   print_mimic(dict, '')
-
+  
 
 if __name__ == '__main__':
   main()
