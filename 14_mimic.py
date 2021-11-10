@@ -52,7 +52,9 @@ def filtro(linha):
     .replace('--', '') \
     .replace('`', '') \
     .replace('"', '') \
-    .replace(';', '')
+    .replace(';', '') \
+    .replace(')', '') \
+    .replace('(', '')
 
 
 
